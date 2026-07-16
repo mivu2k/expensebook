@@ -52,3 +52,9 @@ QHeaderView::section {
 #reportTotal { font-size: 15px; font-weight: bold; color: #2b579a; }
 
 QStatusBar { background: #e9edf2; }
+
+#sheetTitle { font-size: 22px; font-weight: bold; padding: 6px; background: transparent; }
+#summaryTitle { font-weight: bold; font-size: 14px; background: transparent; }
+#dangerButton { background: #d9534f; }
+#dangerButton:hover { background: #e46360; }
+#dangerButton:pressed { background: #b94340; }

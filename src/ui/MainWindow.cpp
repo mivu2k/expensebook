@@ -2,6 +2,8 @@
 #include "core/AppSettings.h"
 #include "ui/AppContext.h"
 #include "ui/pages/BackupPage.h"
+#include "ui/pages/BatchEntryPage.h"
+#include "ui/pages/LedgerPage.h"
 #include "ui/pages/CategoriesPage.h"
 #include "ui/pages/DashboardPage.h"
 #include "ui/pages/EmployeesPage.h"
@@ -52,9 +54,9 @@ MainWindow::MainWindow(AppContext &ctx, QWidget *parent)
     m_nav = new QListWidget;
     m_nav->setObjectName("nav");
     for (const QString &page :
-         {"📊  Dashboard", "💸  Expenses", "💰  Income", "🏷  Categories",
-          "🗂  Sub Categories", "👤  Employees", "📑  Reports", "⚙  Settings",
-          "🗄  Backup & Restore"})
+         {"📊  Dashboard", "💸  Expenses", "🧾  Batch Entry", "💰  Income",
+          "🏷  Categories", "🗂  Sub Categories", "👤  Employees", "📑  Reports",
+          "📒  Ledger", "⚙  Settings", "🗄  Backup & Restore"})
         m_nav->addItem(page);
     sideLayout->addWidget(m_nav, 1);
     root->addWidget(side);
@@ -63,17 +65,20 @@ MainWindow::MainWindow(AppContext &ctx, QWidget *parent)
     m_pages = new QStackedWidget;
     m_pages->addWidget(m_dashboard = new DashboardPage(ctx));
     m_pages->addWidget(m_expensePage = new ExpensePage(ctx));
+    m_pages->addWidget(new BatchEntryPage(ctx));
     m_pages->addWidget(m_incomePage = new IncomePage(ctx));
     auto *categoriesPage = new CategoriesPage(ctx);
     auto *subCategoriesPage = new SubCategoriesPage(ctx);
     auto *employeesPage = new EmployeesPage(ctx);
     auto *reportsPage = new ReportsPage(ctx);
+    auto *ledgerPage = new LedgerPage(ctx);
     auto *settingsPage = new SettingsPage(ctx);
     auto *backupPage = new BackupPage(ctx);
     m_pages->addWidget(categoriesPage);
     m_pages->addWidget(subCategoriesPage);
     m_pages->addWidget(employeesPage);
     m_pages->addWidget(reportsPage);
+    m_pages->addWidget(ledgerPage);
     m_pages->addWidget(settingsPage);
     m_pages->addWidget(backupPage);
     root->addWidget(m_pages, 1);
@@ -134,7 +139,7 @@ void MainWindow::onGlobalSearch(const QString &text)
     m_expensePage->setSearchText(text);
     m_incomePage->setSearchText(text);
     // Jump to the expenses page so results are visible immediately.
-    if (!text.isEmpty() && m_pages->currentIndex() != 1 && m_pages->currentIndex() != 2)
+    if (!text.isEmpty() && m_pages->currentIndex() != 1 && m_pages->currentIndex() != 3)
         m_nav->setCurrentRow(1);
 }
 

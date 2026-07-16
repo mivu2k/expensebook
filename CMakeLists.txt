@@ -53,6 +53,8 @@ set(SOURCES
     src/ui/MainWindow.cpp
     src/ui/pages/DashboardPage.cpp
     src/ui/pages/ExpensePage.cpp
+    src/ui/pages/BatchEntryPage.cpp
+    src/ui/pages/LedgerPage.cpp
     src/ui/pages/IncomePage.cpp
     src/ui/pages/CategoriesPage.cpp
     src/ui/pages/SubCategoriesPage.cpp
