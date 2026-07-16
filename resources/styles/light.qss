@@ -1,0 +1,54 @@
+/* ExpenseBook — Office-style light theme */
+QWidget { font-size: 13px; color: #222; background: #f3f5f7; }
+QMainWindow, QDialog { background: #f3f5f7; }
+
+#sidebar { background: #2b579a; }
+#sidebar QLineEdit {
+    background: #3a66a8; color: white; border: 1px solid #4a76b8;
+    border-radius: 3px; padding: 4px;
+}
+#brand { color: white; font-size: 17px; font-weight: bold; padding: 8px 2px; background: transparent; }
+#nav {
+    background: transparent; border: none; color: #dce6f5; font-size: 14px; outline: 0;
+}
+#nav::item { padding: 9px 8px; border-radius: 4px; }
+#nav::item:selected { background: #1e3f70; color: white; }
+#nav::item:hover { background: #3a66a8; }
+
+QGroupBox {
+    background: white; border: 1px solid #d5dbe2; border-radius: 4px;
+    margin-top: 10px; padding-top: 8px; font-weight: bold;
+}
+QGroupBox::title { subcontrol-origin: margin; left: 10px; padding: 0 4px; }
+
+QLineEdit, QComboBox, QDateEdit, QPlainTextEdit, QSpinBox {
+    background: white; border: 1px solid #c4ccd6; border-radius: 3px; padding: 4px;
+}
+QLineEdit:focus, QComboBox:focus, QDateEdit:focus, QPlainTextEdit:focus {
+    border-color: #2b579a;
+}
+
+QPushButton {
+    background: #2b579a; color: white; border: none; border-radius: 3px;
+    padding: 6px 14px;
+}
+QPushButton:hover { background: #3a66a8; }
+QPushButton:pressed { background: #1e3f70; }
+QPushButton:disabled { background: #aab6c4; }
+
+QTableWidget, QListWidget {
+    background: white; border: 1px solid #d5dbe2; gridline-color: #e6eaef;
+    alternate-background-color: #f7f9fb; selection-background-color: #cfe0f5;
+    selection-color: #222;
+}
+QHeaderView::section {
+    background: #e9edf2; border: none; border-right: 1px solid #d5dbe2;
+    border-bottom: 1px solid #c4ccd6; padding: 6px; font-weight: bold;
+}
+
+#kpiCard { background: white; border: 1px solid #d5dbe2; border-radius: 6px; }
+#kpiTitle { color: #667; font-size: 12px; background: transparent; }
+#kpiValue { color: #2b579a; font-size: 20px; font-weight: bold; background: transparent; }
+#reportTotal { font-size: 15px; font-weight: bold; color: #2b579a; }
+
+QStatusBar { background: #e9edf2; }
